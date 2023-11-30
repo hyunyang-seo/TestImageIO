@@ -32,5 +32,7 @@ include_directories(${ROOT_DIR}/src)
 
 file(GLOB_RECURSE TEST_SRC ${ROOT_DIR}/src/TestImageIO/*.cpp)
 add_executable(TestImageIO ${TEST_SRC})
-target_link_libraries(TestImageIO Simd turbojpeg -lpthread)
+
+target_compile_features(TestImageIO PRIVATE cxx_std_17)
+target_link_libraries(TestImageIO Simd turbojpeg -lpthread -lstdc++fs)
 

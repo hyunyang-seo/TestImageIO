@@ -25,7 +25,7 @@
 
 namespace Test
 {
-	bool EncodeTest(const Options & options, const String & name, int quality, FrameworkPtrs & frameworks)
+	bool EncodeTest(const Options& options, const String& name, int quality, FrameworkPtrs& frameworks)
 	{
 		const String& path = name;// Cpl::MakePath(options.imageDirectory, name);
 		Image src;
@@ -94,7 +94,7 @@ int main(int argc, char* argv[])
 	frameworks.push_back(Test::FrameworkPtr(Test::InitTurboJpeg()));
 	frameworks.push_back(Test::FrameworkPtr(Test::InitStb()));
 
-	Test::Ints qualities = {10, 35, 65, 85, 95};
+	Test::Ints qualities = { 10, 35, 65, 85, 95 };
 
 	Test::Strings images = Test::FindImages(options);// { "city.jpg", "face.jpg", "forest.jpg", "text.png" };
 
@@ -103,6 +103,6 @@ int main(int argc, char* argv[])
 	for (size_t q = 0; q < qualities.size(); ++q)
 		for (size_t i = 0; i < images.size(); ++i)
 			Test::EncodeTest(options, images[i], qualities[q], frameworks);
-	
+
 	return 0;
 }
